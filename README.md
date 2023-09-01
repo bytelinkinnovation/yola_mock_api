@@ -3,9 +3,9 @@
 
 ### Access Token Validation and Authentication
 
-This API uses role-based authentication, allowing only admins to add users who can access endpoints using their JWT token.
+This API uses role-based authentication, allowing only admins to add users but anyone with the test credentials can access the rest of the endpoints using the test login, if you require you personal login, send details to author of Api.
 
-To register, submit an email and password, or use the default login provided below:
+To register, submit email & password to author for signup, or use the default `test` login provided below:
 ```json
 {
     "email": "Test@example.com",
@@ -16,30 +16,31 @@ To register, submit an email and password, or use the default login provided bel
 ## Login to API Endpoint
 
 - **Endpoint:** `POST https://bytelinkinnovation.com/users/login`
+- **Description:** Allow user to login and have access to validate, View, and Generate mock tokens of any amount to customers.
 - **Payload:**
 ```json
+// Request body {data}
 {
     "email": "Test@example.com",
     "password": "password"
 }
 ```
-
-You can either use the test email and password or your custom email and password submitted to the admin.
-
 - **Response:**
 ```json
 {
     "status": 1,
     "message": "login successful",
-    "token": "<your_jwt_token_here>"
+    "token": "<your_jwt_token_here>" // copy this Bearer token and include it in all your requests headers;
 }
 ```
-Copy the *token* provided in the response and use it to make requests. The login endpoint does not require token authentication.
+Copy the *token* provided in the response and use it to make all requests. The login endpoint does not require token authentication.
 
-- JWT token validation has a 1-hour expiration time.
+- JWT token validation has a 1-hour expiration time so cache token for 1hr. if you see access denied during requests, just call the login endpoint again and copy the new token and insert to request header as Bearer.
 
-## Example request with payload that does not require Token. Eg Login Endpoint
+## Example request with payload that does not require Token. Eg The Login Endpoint 
+**Example Endpoint** `POST https://bytelinkinnovation.com/users/login`
 
+**Axios Request** use any programming language of choice.
 ```js
 const axios = require('axios');
 let data = JSON.stringify({
