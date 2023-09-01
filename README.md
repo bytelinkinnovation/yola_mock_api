@@ -38,7 +38,7 @@ Copy the *token* provided in the response and use it to make requests. The login
 
 - JWT token validation has a 1-hour expiration time.
 
-## Example request with payload and token to Login, applies to all endpoints using axios
+## Example request with payload that does not require Token. Eg Login Endpoint
 
 ```js
 const axios = require('axios');
@@ -108,7 +108,8 @@ let config = {
     method: 'get',
     maxBodyLength: Infinity,
     url: 'https://bytelinkinnovation.com/customers/validate/30405242080',
-    headers: { 
+    headers: {
+        // Always place Token afer Bearer
         'Authorization': 'Bearer <your_jwt_token_here>'
     }
 };
