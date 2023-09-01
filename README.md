@@ -5,6 +5,8 @@
 
 This API uses role-based authentication, allowing only admins to add users but anyone with the test credentials can access the rest of the endpoints using the test login, if you want your personal login, send Credentials to author of Api.
 
+**Base Url: ** `https://bytelinkinnovation.com/api`
+
 To register, submit email & password to author for signup, or use the default `test` login provided below:
 ```json
 {
@@ -15,7 +17,7 @@ To register, submit email & password to author for signup, or use the default `t
 
 ## Login to API Endpoint
 
-- **Endpoint:** `POST https://bytelinkinnovation.com/users/login`
+- **Endpoint:** `POST https://bytelinkinnovation.com/api/users/login`
 - **Description:** Allow user to login and have access to validate, View, and Generate mock tokens of any amount to customers.
 - **Payload:**
 ```json
@@ -51,7 +53,7 @@ let data = JSON.stringify({
 let config = {
     method: 'post',
     maxBodyLength: Infinity,
-    url: 'https://bytelinkinnovation.com/users/login',
+    url: 'https://bytelinkinnovation.com/api/users/login',
     headers: { 
         'Content-Type': 'application/json'
     },
@@ -69,9 +71,9 @@ axios.request(config)
 
 ### Customer Validation Endpoint
 
-- **Endpoint:** `POST https://bytelinkinnovation.com/customers/validate/{{meterNumber}}`
+- **Endpoint:** `POST https://bytelinkinnovation.com/api/customers/validate/{{meterNumber}}`
 - **Description:** Validates a customer by passing the meter number as a URL parameter.
-- **Payload:** `POST https://bytelinkinnovation.com/customers/validate/30405242080`
+- **Payload:** `POST https://bytelinkinnovation.com/api/customers/validate/30405242080`
 
 - **Response:**
 ```json
@@ -119,7 +121,7 @@ let data = JSON.stringify({
 let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'https://bytelinkinnovation.com/customers/validate/30405242080',
+    url: 'https://bytelinkinnovation.com/api/customers/validate/30405242080',
     headers: {
         // Always place Token afer Bearer
         'Authorization': 'Bearer <your_jwt_token_here>'
@@ -263,7 +265,7 @@ axios.request(config)
 
 **Description:** Retrieves all customers from the database.
 
-- **Endpoint:** `GET https://bytelinkinnovation.com/customers`
+- **Endpoint:** `GET https://bytelinkinnovation.com/api/customers`
 
 ```json
 {
