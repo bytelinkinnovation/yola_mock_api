@@ -103,6 +103,17 @@ Demonstrates how to pass a token and payload using Axios in a request.
 
 ```javascript
 const axios = require('axios');
+//passing payload
+let data = JSON.stringify({
+  "transactionId": "98a66210e4-3425-42ee-a907-a3195b77",
+  "gateway_transaction_id": "c5f0-40ef-bce5-946810751487",
+  "customerId": "98a660e4-3425-42ee-a907-93e2a3195b77",
+  "transactionStatus": "success",
+  "phoneNumber": "08133335511",
+  "paymentRefNumber": "PG123456",
+  "meterNumber": "30630113222",
+  "amount": "20000.00"
+});
 
 let config = {
     method: 'get',
@@ -111,7 +122,9 @@ let config = {
     headers: {
         // Always place Token afer Bearer
         'Authorization': 'Bearer <your_jwt_token_here>'
-    }
+    },
+
+    data: data
 };
 
 axios.request(config)
@@ -188,9 +201,7 @@ axios.request(config)
             "updated_at": "2023-08-31T15:58:57.000Z",
             "totalUnitVended": 400.43,
             "transactionId": "ab1c25d6-9e8f-4a1b-85c3-6721d0e9a3a4",
-           
-
- "gateway_transaction_id": "c5f0-40ef-bce5-946900751487",
+            "gateway_transaction_id": "c5f0-40ef-bce5-946900751487",
             "transactionStatus": "success",
             "paymentRefNumber": "PG123313",
             "phoneNumber": "07145879652",
@@ -292,7 +303,5 @@ axios.request(config)
     ]
 }
 ```
-
-
 -----
 Feel free to reach out if you encounter any difficulty
