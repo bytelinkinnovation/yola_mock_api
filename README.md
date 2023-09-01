@@ -247,6 +247,52 @@ axios.request(config)
     ]
 }
 ```
+## Get All Customers Endpoint
+
+**Description:** Retrieves all customers from the database.
+
+- **Endpoint:** `GET https://bytelinkinnovation.com/customers`
+
+```json
+{
+    "success": 1,
+    "data": [
+        {
+            "customerId": "0408d142-dccd-4ce6-be04-1c992ec49200",
+            "customerAccountNo": "261123030301",
+            "customerName": "CIVIL DEFENCE OFFICE",
+            "customerAddress": "BEHIND GAGI HOSPITAL GAGI AREA",
+            "customerState": "SOKOTO",
+            "feeder33kV": "33KV POWER STATION",
+            "feeder11KV": "11KV DURBAWA",
+            "regionalOffice": "Sokoto AO",
+            "serviceCenter": "Sokoto AO",
+            "meterNumber": "30630115829",
+            "customerTransformer": "GAGI 2",
+            "created_at": "2023-08-31T12:34:31.000Z",
+            "updated_at": "2023-08-31T12:50:11.000Z",
+            "phoneNumber": "08045785426"
+        },
+        {
+            "customerId": "876c6c18-ee89-45b0-9d20-d06e73fc80f8",
+            "customerAccountNo": "261123880812",
+            "customerName": "Mohammed Ak Yerima",
+            "customerAddress": "Number 36 birnin kebbi crescent garki abuja",
+            "customerState": "Maiduguri",
+            "feeder33kV": "33KV POWER STATION",
+            "feeder11KV": "11KV DURBAWA",
+            "regionalOffice": "Maiduguri AO",
+            "serviceCenter": "Maiduguri AO",
+            "meterNumber": "30630113232",
+            "customerTransformer": "GAGI 3",
+            "created_at": "2023-08-31T12:43:31.000Z",
+            "updated_at": "2023-08-31T12:50:22.000Z",
+            "phoneNumber": "07145879652"
+        }
+    ]
+}
+```
+
 
 -----
 Feel free to reach out if you encounter any difficulty
