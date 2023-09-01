@@ -3,7 +3,7 @@
 
 ### Access Token Validation and Authentication
 
-This API uses role-based authentication, allowing only admins to add users but anyone with the test credentials can access the rest of the endpoints using the test login, if you require you personal login, send details to author of Api.
+This API uses role-based authentication, allowing only admins to add users but anyone with the test credentials can access the rest of the endpoints using the test login, if you want your personal login, send Credentials to author of Api.
 
 To register, submit email & password to author for signup, or use the default `test` login provided below:
 ```json
