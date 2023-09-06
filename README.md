@@ -71,9 +71,9 @@ axios.request(config)
 
 ### Customer Validation Endpoint
 
-- **Endpoint:** `POST https://bytelinkinnovation.com/api/customers/validate/{{meterNumber}}`
+- **Endpoint:** `GET https://bytelinkinnovation.com/api/customers/validate/{{meterNumber}}`
 - **Description:** Validates a customer by passing the meter number as a URL parameter.
-- **Payload:** `POST https://bytelinkinnovation.com/api/customers/validate/30405242080`
+- **Payload:** `GET https://bytelinkinnovation.com/api/customers/validate/30405242080`
 
 - **Response:**
 ```json
@@ -117,6 +117,7 @@ Demonstrates how to pass a token and payload using Axios in a request.
 
 ```javascript
 const axios = require('axios');
+
 //passing payload
 let data = JSON.stringify({
   "transactionId": "98a66210e4-3425-42ee-a907-a3195b77", //from payment gateway
