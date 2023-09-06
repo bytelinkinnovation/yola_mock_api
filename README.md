@@ -100,6 +100,7 @@ axios.request(config)
 }
 ```
 After validating customer, you will have to temporarily save the information below about the customer for making payments
+
 ```json
 {
      "customerId": "876c6c18-ee89-45b0-9d20-d06e73fc80f8",
@@ -108,8 +109,11 @@ After validating customer, you will have to temporarily save the information bel
      "customerName": "Mohammed Ak Yerima",
 }
 ```
+
 this details + the amount the customer typed from the USSD can be use to initiate payment in the gate way, and upon successfull recieving of payments, the *phoneNumber*, *meterNumber*, and *customerId* , *paymentStatus* along with other payloads in the generate token endpoint to generate a Token.
+
 -------------
+
 
 ## Example Axios Request with Bearer Token to generate Meter Token After payment
 
