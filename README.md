@@ -99,8 +99,19 @@ axios.request(config)
     ]
 }
 ```
+After validating customer, you will have to temporarily save the information below about the customer for making payments
+```json
+{
+     "customerId": "876c6c18-ee89-45b0-9d20-d06e73fc80f8",
+     "phoneNumber": "07145879652",
+     "meterNumber": "30405242080",
+     "customerName": "Mohammed Ak Yerima",
+}
+```
+this details + the amount the customer typed from the USSD can be use to initiate payment in the gate way, and upon successfull recieving of payments, the *phoneNumber*, *meterNumber*, and *customerId* , *paymentStatus* along with other payloads in the generate token endpoint to generate a Token.
+-------------
 
-## Example Axios Request with Bearer Token
+## Example Axios Request with Bearer Token to generate Meter Token After payment
 
 Demonstrates how to pass a token and payload using Axios in a request.
 
@@ -108,22 +119,22 @@ Demonstrates how to pass a token and payload using Axios in a request.
 const axios = require('axios');
 //passing payload
 let data = JSON.stringify({
-  "transactionId": "98a66210e4-3425-42ee-a907-a3195b77",
-  "gateway_transaction_id": "c5f0-40ef-bce5-946810751487",
-  "customerId": "98a660e4-3425-42ee-a907-93e2a3195b77",
-  "transactionStatus": "success",
-  "phoneNumber": "08133335511",
-  "paymentRefNumber": "PG123456",
-  "meterNumber": "30630113222",
-  "amount": "20000.00"
+  "transactionId": "98a66210e4-3425-42ee-a907-a3195b77", //from payment gateway
+  "gateway_transaction_id": "c5f0-40ef-bce5-946810751487", // again from payment gateway
+  "customerId": "98a660e4-3425-42ee-a907-93e2a3195b77",// obtained when validating customer
+  "transactionStatus": "success", // status of payment from payment gateway
+  "phoneNumber": "08133335511", // obtained from customer validation endpoint
+  "paymentRefNumber": "PG123456", // from payment gateway
+  "meterNumber": "30630113222", // obtained from customer validation endpoint
+  "amount": "20000.00" // obtained from the customer in the USSD session
 });
 
 let config = {
-    method: 'get',
+    method: 'post',
     maxBodyLength: Infinity,
-    url: 'https://bytelinkinnovation.com/api/customers/validate/30405242080',
+    url: '`https://bytelinkinnovation.com/api/token/generate',
     headers: {
-        // Always place Token afer Bearer
+        // Always place Token afer Bearer {bearer token obtained from login endpoint
         'Authorization': 'Bearer <your_jwt_token_here>'
     },
 
